@@ -10,13 +10,38 @@ public class FirstPersonLook : MonoBehaviour
 
     private bool strawsCollected = false;
     public static bool inStrawRange = false;
+    private bool wrappingCollected = false;
+    private bool meatCollected = false;
+    private bool milkCollected = false;
 
     public GameObject paperStraws;
     public GameObject plasticStraws;
+
     public Text strawCheckbox;
+    public Text milkCheckbox;
+    public Text wrappingCheckbox;
+    public Text meatCheckbox;
 
     public GameObject paperStrawFish;
     public GameObject plasticStrawFish;
+
+    public GameObject goodWrappingResult;
+    public GameObject badWrappingResult;
+
+    public GameObject goodMeatResult;
+    public GameObject badMeatResult;
+
+    public GameObject goodMilkResult;
+    public GameObject badMilkResult;
+
+    public GameObject goodWrappingCart;
+    public GameObject badWrappingCart;
+
+    public GameObject goodMeatCart;
+    public GameObject badMeatCart;
+
+    public GameObject goodMilkCart;
+    public GameObject badMilkCart;
 
     public static int checkoutNumber = 0;
 
@@ -41,8 +66,23 @@ public class FirstPersonLook : MonoBehaviour
         paperStraws.SetActive(false);
         plasticStraws.SetActive(false);
         strawCheckbox.enabled = false;
+        milkCheckbox.enabled = false;
+        wrappingCheckbox.enabled = false;
+        meatCheckbox.enabled = false;
         paperStrawFish.SetActive(false);
         plasticStrawFish.SetActive(false);
+        goodWrappingResult.SetActive(false);
+        badWrappingResult.SetActive(false);
+        goodWrappingCart.SetActive(false);
+        badWrappingCart.SetActive(false);
+        goodMeatResult.SetActive(false);
+        badMeatResult.SetActive(false);
+        goodMeatCart.SetActive(false);
+        badMeatCart.SetActive(false);
+        goodMilkResult.SetActive(false);
+        badMilkResult.SetActive(false);
+        goodMilkCart.SetActive(false);
+        badMilkCart.SetActive(false);
     }
 
     void Update()
@@ -87,6 +127,61 @@ public class FirstPersonLook : MonoBehaviour
                         checkoutNumber++;
                     }
                 }
+
+                if (hit.collider.tag == "Good Wrapping" && wrappingCollected == false)
+                {
+                    wrappingCollected = true;
+                    goodWrappingCart.SetActive(true);
+                    wrappingCheckbox.enabled = true;
+                    goodWrappingResult.SetActive(true);
+                    checkoutNumber++;
+                }
+
+                if (hit.collider.tag == "Bad Wrapping" && wrappingCollected == false)
+                {
+                    wrappingCollected = true;
+                    badWrappingCart.SetActive(true);
+                    wrappingCheckbox.enabled = true;
+                    badWrappingResult.SetActive(true);
+                    checkoutNumber++;
+                }
+
+                if (hit.collider.tag == "Good Meat" && meatCollected == false)
+                {
+                    meatCollected = true;
+                    goodMeatCart.SetActive(true);
+                    meatCheckbox.enabled = true;
+                    goodMeatResult.SetActive(true);
+                    checkoutNumber++;
+                }
+
+                if (hit.collider.tag == "Bad Meat" && meatCollected == false)
+                {
+                    meatCollected = true;
+                    badMeatCart.SetActive(true);
+                    meatCheckbox.enabled = true;
+                    badMeatResult.SetActive(true);
+                    checkoutNumber++;
+                }
+
+                if (hit.collider.tag == "Good Milk" && milkCollected == false)
+                {
+                    milkCollected = true;
+                    goodMilkCart.SetActive(true);
+                    milkCheckbox.enabled = true;
+                    goodMilkResult.SetActive(true);
+                    checkoutNumber++;
+                }
+
+                if (hit.collider.tag == "Bad Milk" && milkCollected == false)
+                {
+                    milkCollected = true;
+                    badMilkCart.SetActive(true);
+                    milkCheckbox.enabled = true;
+                    badMilkResult.SetActive(true);
+                    checkoutNumber++;
+                }
+
             }
 
         }

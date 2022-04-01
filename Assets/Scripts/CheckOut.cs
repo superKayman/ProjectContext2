@@ -21,7 +21,7 @@ public class CheckOut : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (FirstPersonLook.checkoutNumber == 1)
+            if (FirstPersonLook.checkoutNumber == 4)
             {
                 SceneManager.LoadScene("Supermarket_01");
             }

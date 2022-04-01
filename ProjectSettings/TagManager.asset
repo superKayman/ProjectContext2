@@ -8,6 +8,12 @@ TagManager:
   - Paper Straws
   - Plastic Straws
   - End
+  - Good Wrapping
+  - Bad Wrapping
+  - Good Meat
+  - Bad Meat
+  - Good Milk
+  - Bad Milk
   layers:
   - Default
   - TransparentFX
